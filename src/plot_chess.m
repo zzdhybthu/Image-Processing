@@ -1,6 +1,6 @@
 function plot_chess(img, length, save_prefix)
     % Plot a chessboard on the image and save it
-    % img [3D double]: the input image
+    % img [3D uint8]: the input image
     % length [int]: length of the chessboard
     % save_prefix [str][optional]: prefix of the saved file
     % return: None
@@ -11,7 +11,7 @@ function plot_chess(img, length, save_prefix)
     checkerboard = mod(floor((x - 0.5) / length) + floor((y - 0.5) / length), 2);  % 0.5 for better visualization
     mask = repmat(checkerboard, [1, 1, channels]) == 0;
 
-    chess = img;
+    chess = double(img);
     chess(mask) = 0;
     imshow(uint8(chess));
 

@@ -20,7 +20,7 @@ function face_recognition(img, height, width, step_h, step_w, L, v, threshold)
             window = reshape(window, [h_ * w_, 3]);
             val = zeros(1, h_ * w_);
             for k = 1 : h_ * w_
-                val(k) = rgb2num(int64(window(k, :)), L);
+                val(k) = rgb2scalar(int64(window(k, :)), L);
             end
             val = histcounts(val, edge) / (h_ * w_);
             % Bhattacharyya distance
